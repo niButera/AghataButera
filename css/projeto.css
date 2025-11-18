@@ -1,0 +1,174 @@
+/* CORPO */
+body {
+    background: linear-gradient(45deg, #1254a0, #65ce35);
+    background-repeat: repeat;
+    min-height: 100vh;
+    margin: 5%;
+}
+
+/* CABEÇALHO */
+header {
+    background: rgba(0, 0, 0, 0.281);
+    box-shadow: 0px 0px 10px 0px;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.H-Content {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+    display: flex;
+}
+
+/* FONTES */
+h1 {
+    background: linear-gradient(to left, rgb(170, 221, 255), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 30px;
+    line-height: 0;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease;
+    color: rgba(236, 235, 235, 1);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    margin: 0px 30px;
+    font-size: 15px;
+}
+
+a:hover {
+    transform: scale(1.05);
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    margin: 0px;
+}
+
+/* IMAGENS */
+#H-Icon {
+    width: 50px;
+}
+
+#HS-Icon {
+    transition: transform 0.3s ease;
+    margin-right: 30px;
+}
+
+#HS-Icon:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+#water, #canudo, #copo, #bolsa {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+#produto, #produto2, #produto3, #produto4 {
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+    flex-direction: row;
+    text-align: left;
+    display: flex;
+    padding: 20px;
+    margin: 10px;
+    
+    /* FONTE */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    white-space: pre-line;
+    font-size: 15px;
+}
+
+#produtos:hover, #produtos2:hover, #produtos3:hover, #produtos4:hover,
+#botao1:hover, #botao2:hover, #botao3:hover, #botao4:hover {
+    transform: scale(1.05);
+}
+
+#produtos {
+    background-color: rgb(212, 157, 112);
+}
+
+#produtos2 {
+    background-color: rgb(83, 157, 226);
+}
+
+#produtos3 {
+    background-color: rgb(186, 122, 238);
+}
+
+#produtos4 {
+    background-color: rgb(227, 180, 241);
+}
+
+#secao1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#secao2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#botao1, #botao2, #botao3, #botao4  {
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.164);
+    padding: 10px 150px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    font-size: 18px;
+    border: 0px;
+}
+
+#botao1 {
+    background-color: rgb(253, 223, 198);
+}
+
+#botao2 {
+    background-color: rgb(162, 203, 241);
+}
+
+#botao3 {
+    background-color: rgb(232, 170, 245);
+}
+
+#botao4 {
+    background-color: rgb(255, 221, 249);
+}
+
+#diva {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra - EcoThermo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Finalizar Compra</h1>
+    <p>Confira seus produtos e preencha seus dados</p>
+  </header>
+
+  <section class="formulario">
+    <h2>🛍️ Itens no Carrinho</h2>
+    <ul id="lista-compra"></ul>
+    <p id="total-compra"></p>
+
+    <hr>
+
+    <form>
+      <label>Nome completo:</label>
+      <input type="text" required>
+
+      <label>Email:</label>
+      <input type="email" required>
+
+      <label>Endereço:</label>
+      <input type="text" required>
+
+      <button type="submit">Confirmar Pedido</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 EcoThermo - Obrigado por comprar conosco!</p>
+  </footer>
+
+  <script>
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const lista = document.getElementById("lista-compra");
+    let total = 0;
+
+    carrinho.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.produto} - R$ ${item.preco.toFixed(2)}`;
+      lista.appendChild(li);
+      total += item.preco;
+    });
+
+    document.getElementById("total-compra").textContent = `Total: R$ ${total.toFixed(2)}`;
+  </script>
+</body>
+</html>

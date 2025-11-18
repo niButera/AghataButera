@@ -1,0 +1,228 @@
+/* CORPO */
+body {
+  background: linear-gradient(45deg, #0b0d0f, #3596ce);
+  background-repeat: repeat;
+  min-height: 100vh;
+  margin: 100px 5%;
+}
+
+/* CABEÇALHO */
+header {
+  background: rgba(0, 0, 0, 0.281);
+  box-shadow: 0px 0px 10px 0px;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.H-Content {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 7%;
+  display: flex;
+}
+
+.carrinho {
+  /* APARENCIA */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.521);
+  background-color: rgba(0, 0, 0, 0.205);
+  border: 2px solid #1d1d1d57;
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  /* FONTE */
+  font-family: 'Montserrat', sans-serif;
+  /* POSIÇOES */
+  transform: translateX(-50%);
+  max-width: 400px;
+  position: fixed;
+  display: none;
+  z-index: 999;
+  width: 90%;
+  left: 50%;
+  top: 10%;
+}
+
+.carrinho-icon {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: rgb(156, 182, 255);
+  border-radius: 30px;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  position: fixed;
+  cursor: pointer;
+  right: 30px;
+  top: 20px;
+}
+
+.carrinho-icon span {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 3px 7px;
+  margin-left: 5px;
+}
+
+.carrinho h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.carrinho ul {
+  list-style: none;
+  padding: 0;
+}
+
+.carrinho li {
+  border-bottom: 1px solid #000000;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 6px 0;
+  display: flex;
+}
+
+.carrinho button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.carrinho {
+  background: #cccccc15;
+  color: black;
+}
+
+.fechar, .limpar, .finalizar {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.336);
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 8px;
+  border: 0px;
+}
+
+.finalizar {
+  background: #4caf50;
+}
+
+.remover-item {
+  border-radius: 50px;
+  padding: 4px 10px;
+  background: rgba(255, 0, 0, 0.897);
+  font-weight: bold;
+  margin-left: 80px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  width: auto;
+}
+
+/* FONTES */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+  white-space: pre-line;
+  margin-left: 6%;
+}
+
+/* DIVS */
+#diva {
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+
+#water, #canudo,
+#copo,#bolsa {
+  object-fit: cover;
+  height: 250px;
+  width: 250px;
+}
+
+#secao2 {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  display: flex;
+}
+
+#produtos {
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#produto, #produto2,
+#produto3, #produto4 {
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  flex-direction: row;
+  text-align: left;
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+  /* FONTE */
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+  white-space: pre-line;
+  font-size: 15px;
+}
+
+#produto {
+  background: linear-gradient(30deg, rgb(252, 138, 45), rgb(212, 157, 112));
+}
+
+#produto2 {
+  background: linear-gradient(30deg,  rgb(28, 113, 194),  rgb(83, 157, 226));
+}
+
+#produto3 {
+  background: linear-gradient(30deg,rgb(149, 59, 223), rgb(186, 122, 238));
+}
+
+#produto4 {
+  background: linear-gradient(30deg, rgb(199, 70, 238),rgb(227, 180, 241));
+}
+
+#botao1, #botao2,
+#botao3, #botao4 {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.164);
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  border: 0px;
+  padding: 10px 100px;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+#botao1 {
+  background-color: rgb(253, 223, 198);
+}
+
+#botao2 {
+  background-color: rgb(162, 203, 241);
+}
+
+#botao3 {
+  background-color: rgb(220, 171, 253);
+}
+
+#botao4 {
+  background-color: rgb(252, 197, 242);
+}
+
+#produto:hover, #produto2:hover, #produto3:hover, #produto4:hover,
+#botao1:hover, #botao2:hover, #botao3:hover, #botao4:hover, .fechar:hover,
+.limpar:hover, .finalizar:hover {
+    transform: scale(1.03);
+}
