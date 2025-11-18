@@ -153,10 +153,10 @@ h1 {
 }
 
 #produtos {
-   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   flex-wrap: wrap;
+  display: grid;
 }
 
 #produto, #produto2,
@@ -196,13 +196,13 @@ h1 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.164);
   transition: transform 0.3s ease;
   border-radius: 20px;
+  padding: 10px 100px;
+  width: fit-content;
   font-weight: bold;
+  margin-top: 10px;
   cursor: pointer;
   font-size: 18px;
   border: 0px;
-  padding: 10px 100px;
-  margin-top: 10px;
-  width: fit-content;
 }
 
 #botao1 {
@@ -223,6 +223,6 @@ h1 {
 
 #produto:hover, #produto2:hover, #produto3:hover, #produto4:hover,
 #botao1:hover, #botao2:hover, #botao3:hover, #botao4:hover, .fechar:hover,
-.limpar:hover, .finalizar:hover {
+.limpar:hover, .finalizar:hover, a:hover {
     transform: scale(1.03);
 }

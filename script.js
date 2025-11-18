@@ -1,40 +1,147 @@
-let carrinho = [];
-let total = 0;
+// -------------------------
+// CLASSES
+// -------------------------
 
-function adicionarCarrinho(produto, preco) {
-  carrinho.push({ produto, preco });
-  total += preco;
-  atualizarCarrinho();
+// Classe base (superclasse)
+class Produto {
+  constructor(nome, preco, categoria = "geral") {
+    this.nome = nome;
+    this.preco = preco;
+    this.categoria = categoria;
+  }
 }
 
-function atualizarCarrinho() {
-  document.getElementById("contador").textContent = carrinho.length;
+// Classe filha com herança
+class ProdutoCarrinho extends Produto {
+  constructor(nome, preco, categoria) {
+    super(nome, preco, categoria); // herança
+    this.dataAdicionado = new Date();
+  }
+}
 
-  const lista = document.getElementById("itens-carrinho");
-  lista.innerHTML = "";
+// Classe responsável por gerenciar o carrinho
+class CarrinhoDeCompras {
+  constructor() {
+    this.itens = [];
+    this.total = 0;
+  }
 
-  carrinho.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      ${item.produto} - R$ ${item.preco.toFixed(2)}
-      <button onclick="removerItem(${index})" class="remover-item">X</button>
-    `;
-    lista.appendChild(li);
-  });
+  adicionar(produto) {
+    this.itens.push(produto);
+    this.total += produto.preco;
+    this.atualizarInterface();
+  }
 
-  document.getElementById("total").textContent = `Total: R$ ${total.toFixed(2)}`;
+  remover(index) {
+    this.total -= this.itens[index].preco;
+    this.itens.splice(index, 1);
+    this.atualizarInterface();
+  }
+
+  limpar() {
+    this.itens = [];
+    this.total = 0;
+    this.atualizarInterface();
+  }
+
+  // -------------------------
+  // SWITCH (utilizando categorias)
+  // -------------------------
+  definirMensagemPorCategoria(produto) {
+    switch (produto.categoria) {
+      case "roupa":
+        return "Você adicionou uma peça de roupa!";
+      case "eletronico":
+        return "Item eletrônico adicionado!";
+      case "decoracao":
+        return "Item decorativo adicionado ao carrinho!";
+      default:
+        return "Item adicionado ao carrinho!";
+    }
+  }
+
+  atualizarInterface() {
+    document.getElementById("contador").textContent = this.itens.length;
+
+    const lista = document.getElementById("itens-carrinho");
+    lista.innerHTML = "";
+
+    // -------------------------
+    // FOR (loop clássico)
+    // -------------------------
+    for (let i = 0; i < this.itens.length; i++) {
+      const item = this.itens[i];
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item.nome} - R$ ${item.preco.toFixed(2)}
+        <button onclick="removerItem(${i})" class="remover-item">X</button>
+      `;
+      lista.appendChild(li);
+    }
+
+    document.getElementById("total").textContent = `Total: R$ ${this.total.toFixed(2)}`;
+  }
+
+  finalizar() {
+    // operador ternário
+    this.itens.length === 0
+      ? alert("Seu carrinho está vazio! Adicione algum item antes de finalizar a compra.")
+      : (localStorage.setItem("carrinho", JSON.stringify(this.itens)),
+         window.location.href = "comprar.html");
+  }
+
+  // -------------------------
+  // LEITURA COM WHILE
+  // -------------------------
+  listarItensConsole() {
+    let i = 0;
+    while (i < this.itens.length) {
+      console.log("Item:", this.itens[i].nome);
+      i++;
+    }
+  }
+
+  // -------------------------
+  // DO WHILE (exemplo simples)
+  // -------------------------
+  verificarMinimo() {
+    let quantidade = this.itens.length;
+    do {
+      console.log("Quantidade atual:", quantidade);
+      quantidade--;
+    } while (quantidade > 0);
+  }
+}
+
+// -------------------------
+// INSTÂNCIA DO CARRINHO
+// -------------------------
+
+const carrinho = new CarrinhoDeCompras();
+
+// -------------------------
+// FUNÇÕES USADAS PELO HTML
+// -------------------------
+
+function adicionarCarrinho(nome, preco, categoria = "geral") {
+  const produto = new ProdutoCarrinho(nome, preco, categoria);
+  
+  // usando o switch
+  console.log(carrinho.definirMensagemPorCategoria(produto));
+
+  carrinho.adicionar(produto);
 }
 
 function removerItem(index) {
-  total -= carrinho[index].preco;     // subtrai o valor do item removido
-  carrinho.splice(index, 1);          // remove o item
-  atualizarCarrinho();                // atualiza tela
+  carrinho.remover(index);
 }
 
 function limparCarrinho() {
-  carrinho = [];
-  total = 0;
-  atualizarCarrinho();
+  carrinho.limpar();
+}
+
+function finalizarCompra() {
+  carrinho.finalizar();
 }
 
 function abrirCarrinho() {
@@ -45,7 +152,4 @@ function fecharCarrinho() {
   document.getElementById("carrinho").style.display = "none";
 }
 
-function finalizarCompra() {
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  window.location.href = "comprar.html";
-}
+

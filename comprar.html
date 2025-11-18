@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finalizar Compra - EcoThermo</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/comprar.css">
 </head>
+
 <body>
   <header>
-    <h1>Finalizar Compra</h1>
-    <p>Confira seus produtos e preencha seus dados</p>
+    <h1>EcoThermo</h1>
   </header>
+
+  <a href="index.html">Voltar para a Página Inicial</a>
+  <h2>Finalizar Compra</h2>
+  <p>Confira seus produtos e preencha seus dados</p>
 
   <section class="formulario">
     <h2>🛍️ Itens no Carrinho</h2>
@@ -36,7 +42,7 @@
   <footer>
     <p>© 2025 EcoThermo - Obrigado por comprar conosco!</p>
   </footer>
-
+  
   <script>
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
     const lista = document.getElementById("lista-compra");
@@ -44,12 +50,26 @@
 
     carrinho.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = `${item.produto} - R$ ${item.preco.toFixed(2)}`;
+      li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
       lista.appendChild(li);
       total += item.preco;
     });
 
     document.getElementById("total-compra").textContent = `Total: R$ ${total.toFixed(2)}`;
+
+    // ALERT + REDIRECIONAMENTO PARA INDEX
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      alert("Obrigado pela compra! Seu pedido foi realizado com sucesso.");
+
+      localStorage.removeItem("carrinho");
+
+      window.location.href = "index.html";
+    });
   </script>
+
 </body>
+
 </html>
