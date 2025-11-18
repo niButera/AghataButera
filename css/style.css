@@ -48,6 +48,7 @@ header {
 
 .carrinho-icon {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Montserrat', sans-serif;
   background: rgb(156, 182, 255);
   border-radius: 30px;
   font-size: 1.5rem;

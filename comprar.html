@@ -21,7 +21,7 @@
   <section class="formulario">
     <h2>🛍️ Itens no Carrinho</h2>
     <ul id="lista-compra"></ul>
-    <p id="total-compra"></p>
+    <h2 id="total-compra"></h2>
 
     <hr>
 
@@ -35,14 +35,14 @@
       <label>Endereço:</label>
       <input type="text" required>
 
-      <button type="submit">Confirmar Pedido</button>
+      <button type="submit" id="botao5">Confirmar Pedido</button>
     </form>
   </section>
 
   <footer>
     <p>© 2025 EcoThermo - Obrigado por comprar conosco!</p>
   </footer>
-  
+
   <script>
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
     const lista = document.getElementById("lista-compra");
